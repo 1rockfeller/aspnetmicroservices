@@ -28,7 +28,7 @@ namespace Discount.API
         {
 
             services.AddScoped<IDiscountRepository, DiscountRepository>();
-            services.AddAutoMapper(typeof(Startup));
+            //services.AddAutoMapper(typeof(Startup));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

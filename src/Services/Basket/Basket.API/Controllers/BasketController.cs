@@ -18,19 +18,27 @@ namespace Basket.API.Controllers
         //private readonly IPublishEndpoint _publishEndpoint;
         private readonly IMapper _mapper;
 
-        public BasketController(IBasketRepository repository)
-        {
-            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        //public BasketController(IBasketRepository repository)
+        //{
+        //    _repository = repository ?? throw new ArgumentNullException(nameof(repository));
            
-        }
+        //}
 
-        public BasketController(IBasketRepository repository, DiscountGrpcService discountGrpcService, IPublishEndpoint publishEndpoint, IMapper mapper)
+        public BasketController(IBasketRepository repository, DiscountGrpcService discountGrpcService)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
             _discountGrpcService = discountGrpcService ?? throw new ArgumentNullException(nameof(discountGrpcService));
             //_publishEndpoint = publishEndpoint ?? throw new ArgumentNullException(nameof(publishEndpoint));
             //_mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
+
+        //public BasketController(IBasketRepository repository, DiscountGrpcService discountGrpcService, IPublishEndpoint publishEndpoint, IMapper mapper)
+        //{
+        //    _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+        //    _discountGrpcService = discountGrpcService ?? throw new ArgumentNullException(nameof(discountGrpcService));
+        //    //_publishEndpoint = publishEndpoint ?? throw new ArgumentNullException(nameof(publishEndpoint));
+        //    //_mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+        //}
 
         [HttpGet("{userName}", Name = "GetBasket")]
         [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
